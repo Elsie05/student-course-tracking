@@ -1,0 +1,16 @@
+# IDE specific files
+.settings/
+.project
+.classpath
+.jsdtscope
+
+# Build outputs
+build/
+WebContent/WEB-INF/classes/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Database secrets (Optional but recommended to keep template)
+# src/db.properties
