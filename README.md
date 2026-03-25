@@ -34,5 +34,5 @@
    - 将项目导入 IDE (Eclipse/IntelliJ IDEA/VS Code)。
    - 开启servers。
    - 运行并在浏览器访问 `http://localhost:8080/sct`。
-<img width="1000" height="1656" alt="image" src="https://github.com/user-attachments/assets/228de2a2-9077-4ce5-826b-36d2dc681883" />
+<img width=40% alt="image" src="https://github.com/user-attachments/assets/228de2a2-9077-4ce5-826b-36d2dc681883" />
 
