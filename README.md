@@ -12,28 +12,27 @@
 
 ## 技术栈
 
-- **后端**：Java Servlet, JDBC
-- **数据库**：MySQL 8.0+
-- **前端**：JSP, JSTL, jQuery, ECharts
 - **依赖管理**：手动管理 JAR 包 (位于 `WebContent/WEB-INF/lib`)
-- **服务器**：Tomcat 10+ (Jakarta EE 兼容)
+- **Web容器**：Tomcat 11.0.18
+- **编程语言**：Java 21.0.10
+- **前端**：JSP, JSTL, jQuery, ECharts
+- **后端**：Java Servlet, JDBC
+- **数据库**：MySQL 8.0.45
+- **数据库设计**: Power Designer
+- **数据库连接池**：DBCP
+- **数据库操作**: DBUtils
 
 ## 快速启动
 
 1. **导入数据库**：
-   - 创建名为 `sct` 的数据库。
-   - 运行项目根目录下的 `sct.sql` 文件导入表结构和初始数据。
+   - Navicat-连接-MySQL-端口3306，用户名root，密码123456（可以使用其他端口号、用户名、密码，但需要对应修改src/db.properties文件）
+   - 右键新建的连接，新建数据库-数据库名sct。
+   - 新建查询-复制粘贴项目根目录下的 `sct.sql` 文件内容并运行。
+<img width="2100" height="1244" alt="屏幕截图 2026-03-25 204218" src="https://github.com/user-attachments/assets/a1ceeef8-ef7c-488c-9b85-28a01fa5ca2d" />
 
-2. **修改数据库配置**：
-   - 修改 `src/db.properties` 文件，确保 `username` 和 `password` 与您的 MySQL 设置匹配。
-   - *注意：如果使用 MySQL 8.x，驱动程序已更新为 `com.mysql.cj.jdbc.Driver`。*
+2. **部署项目**：
+   - 将项目导入 IDE (Eclipse/IntelliJ IDEA/VS Code)。
+   - 开启servers。
+   - 运行并在浏览器访问 `http://localhost:8080/sct`。
+<img width="1000" height="1656" alt="image" src="https://github.com/user-attachments/assets/228de2a2-9077-4ce5-826b-36d2dc681883" />
 
-3. **部署项目**：
-   - 将项目导入 IDE (Eclipse/IntelliJ IDEA)。
-   - 配置 Tomcat 10 或 11 服务器。
-   - 运行并访问 `http://localhost:8080/sct`。
-
-## 注意事项
-
-- **SSL 问题**：如果遇到数据库连接失败，请在 `db.properties` 的 URL 后添加 `&useSSL=false&allowPublicKeyRetrieval=true`。
-- **Jakarta EE**：本项目使用 `jakarta.servlet` 包名，请确保服务器版本支持 Jakarta EE。
