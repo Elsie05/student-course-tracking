@@ -10,16 +10,20 @@
 		<script  src="${basePath}static/js/jquery.min.js" type="text/javascript"></script>
 		<script type="text/javascript">
 			$(function(){
-				$('.menux p').click(function(){
-					$(this).siblings('ul').slideUp(200);
-					$(this).next('ul').slideToggle(200);
+				// 左侧栏导航栏默认折叠&点击后展开
+				$('.menux p').click(function(){ //给所有menux下的p标签绑定点击事件
+					$(this).siblings('ul').slideUp(200); //当前p标签的同级的其他ul在 200 毫秒内向上滑动并隐藏。
+					$(this).next('ul').slideToggle(200); //找到当前被点击标题紧接着的那个 <ul> 列表，并切换它的显示状态。
 				});
 				
 				$('.menux p:first').trigger("click");
 				
+				// 监听所有左侧子菜单项（即 <a> 标签）的点击事件
 				$('.menux ul a').click(function(){
-					
+					//1. $(this).attr("url")：获取被点击的a标签的 url 属性
+					//   $('iframe').attr("src", ...)：将其赋值给页面中 iframe 标签中的 src 属性
 					$('iframe').attr("src",$(this).attr("url"));
+					// 2. 获取点击链接的 title 属性，并将其设置为页面顶部标题栏的文字
 					$('.menu_title').html($(this).attr("title"));
 				});
 				
@@ -47,7 +51,7 @@
 				<c:if test="${type == 0}">
 					${user.stuName}
 				</c:if>
-				<ul>
+				<ul> 
 					<li><a  target="mainFrame" href="pwd.jsp">修改密码</a></li>
 					<li><a  target="mainFrame" href="info.jsp">个人信息</a></li>
 					<li><a  href="javascript:void(0)" class="logout">退出登录</a></li>
@@ -68,6 +72,10 @@
 				</p>
 				<ul>
 					<li>
+						<!-- javascript:void(0)禁用常规跳转（否则左侧的菜单栏和顶部的导航栏都会消失） -->
+						<!-- basepath由 PathUtils.java 计算得出，通常的值是 http://localhost:8080/sct/ -->
+						<!-- StudentServlet.java中说明了，/student结尾的请求，会被交给 StudentServlet 类来处理 -->
+						<!-- ? ：分隔符，表示后面开始带参数，参数名是 method ，值是 list -->
 						<a  href="javascript:void(0);" url="${basePath}student?method=list"  title="学生管理">
 							<i class="fa fa-caret-right"></i>
 							学生管理
@@ -149,6 +157,7 @@
 				<i class="fa fa-home"></i>
 				<span class="menu_title">用户管理</span>
 			</div>
+			<!-- 嵌套子页面 -->
 			<iframe src="main"  width="100%" height="90%" name="mainFrame"  id="mainFrame" frameborder="0px"></iframe>
 		</div>
 	</body>
