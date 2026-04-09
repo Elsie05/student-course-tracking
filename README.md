@@ -36,5 +36,5 @@
    - 运行并在浏览器访问 `http://localhost:8080/sct`。
 <img width="2880" height="1646" alt="屏幕截图 2026-03-25 210955" src="https://github.com/user-attachments/assets/eba0e98d-5ece-4e77-9a7d-83391a259c14" />
 
-
-
+3. **登录系统**：
+   - 密码统一为123456
